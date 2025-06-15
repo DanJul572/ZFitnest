@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 const NotFound = () => {
   return (
     <View>
-      <Text>NotFound</Text>
+      <Text allowFontScaling={false}>NotFound</Text>
     </View>
   );
 };

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 const Activity = () => {
   return (
     <View style={styles.container}>
-      <Text>Activity</Text>
+      <Text allowFontScaling={false}>Activity</Text>
     </View>
   );
 };

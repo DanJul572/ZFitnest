@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 const Gallery = () => {
   return (
     <View style={styles.container}>
-      <Text>Gallery</Text>
+      <Text allowFontScaling={false}>Gallery</Text>
     </View>
   );
 };

@@ -1,10 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native';
+import Dashboard from '@/components/Dashboard';
+import { SafeAreaView, StyleSheet } from 'react-native';
 
 const Index = () => {
   return (
-    <View style={styles.container}>
-      <Text>Home</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Dashboard />
+    </SafeAreaView>
   );
 };
 
@@ -13,7 +14,6 @@ export default Index;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    paddingTop: 20,
   },
 });

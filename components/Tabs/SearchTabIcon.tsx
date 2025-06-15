@@ -18,7 +18,9 @@ const Categories = () => {
         return (
           <View key={index} style={styles.categoryCard}>
             <View style={styles.categoryCheckbox} />
-            <Text>{category}</Text>
+            <Text allowFontScaling={false} style={styles.categoryText}>
+              {category}
+            </Text>
           </View>
         );
       })}
@@ -63,21 +65,26 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     bottom: 90,
     height: 140,
-    justifyContent: 'space-around',
-    padding: 10,
+    justifyContent: 'space-evenly',
+    alignContent: 'center',
+    paddingHorizontal: 10,
     position: 'absolute',
-    width: 140,
+    width: 160,
   },
   categoryCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 5,
+    gap: 10,
+    width: '100%',
   },
   categoryCheckbox: {
     backgroundColor: colors.grey3,
     borderRadius: 5,
-    width: 20,
-    height: 20,
+    width: 25,
+    height: 25,
+  },
+  categoryText: {
+    fontSize: 13,
   },
 });
 

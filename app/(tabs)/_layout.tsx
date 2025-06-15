@@ -1,45 +1,74 @@
+import ActivityTabIcon from '@/components/Tabs/ActivityTabIcon';
+import GalleryTabIcon from '@/components/Tabs/Gallery';
+import HomeTabIcon from '@/components/Tabs/HomeTabIcon';
+import ProfileTabIcon from '@/components/Tabs/ProfileTabIcon';
+import SearchTabIcon from '@/components/Tabs/SearchTabIcon';
 import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+const TabLayout = () => {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
+        tabBarStyle: styles.tabBar,
+        tabBarShowLabel: false,
+        tabBarButton: (props) => {
+          const isSearch: boolean =
+            props.accessibilityLargeContentTitle === 'search';
+
+          if (isSearch) {
+            return <View style={styles.iconButton}>{props.children}</View>;
+          }
+
+          return (
+            <Pressable onPress={props.onPress} style={styles.iconButton}>
+              {props.children}
+            </Pressable>
+          );
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ focused }) => <HomeTabIcon isActive={focused} />,
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="activity"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIcon: ({ focused }) => <ActivityTabIcon isActive={focused} />,
+        }}
+      />
+      <Tabs.Screen
+        name="search"
+        options={{
+          tabBarIcon: () => <SearchTabIcon />,
+        }}
+      />
+      <Tabs.Screen
+        name="gallery"
+        options={{
+          tabBarIcon: ({ focused }) => <GalleryTabIcon isActive={focused} />,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          tabBarIcon: ({ focused }) => <ProfileTabIcon isActive={focused} />,
         }}
       />
     </Tabs>
   );
-}
+};
+
+export default TabLayout;
+
+const styles = StyleSheet.create({
+  tabBar: {
+    height: 70,
+    paddingTop: 15,
+  },
+  iconButton: { alignItems: 'center' },
+});

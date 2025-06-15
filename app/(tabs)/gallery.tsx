@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-const Index = () => {
+const Gallery = () => {
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
+      <Text>Gallery</Text>
     </View>
   );
 };
 
-export default Index;
+export default Gallery;
 
 const styles = StyleSheet.create({
   container: {

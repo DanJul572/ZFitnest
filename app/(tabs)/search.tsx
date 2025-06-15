@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-const Index = () => {
+const Search = () => {
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
+      <Text>Search</Text>
     </View>
   );
 };
 
-export default Index;
+export default Search;
 
 const styles = StyleSheet.create({
   container: {

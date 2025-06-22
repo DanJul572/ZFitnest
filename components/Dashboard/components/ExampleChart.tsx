@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 8,
     borderLeftColor: 'transparent',
     borderRightColor: 'transparent',
-    borderTopColor: '#EEA4CE',
+    borderTopColor: '#DB98DF',
     position: 'absolute',
     top: 29,
   },

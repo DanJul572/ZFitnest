@@ -19,6 +19,8 @@ const Banner = () => {
           </Text>
           <Pressable>
             <LinearGradient
+              start={{ x: 1, y: 1 }}
+              end={{ x: 0, y: 0 }}
               colors={LinearColors.PurpleLinear}
               style={styles.button}
             >
@@ -39,6 +41,7 @@ const Banner = () => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
+    height: 170,
   },
   overlay: {
     position: 'absolute',

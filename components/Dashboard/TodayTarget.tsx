@@ -1,11 +1,13 @@
-import colors from '@/enums/color';
-import LinearColors from '@/enums/linearColors';
-import { LinearGradient } from 'expo-linear-gradient';
-import { Pressable, StyleSheet, Text } from 'react-native';
+import colors from "@/enums/color";
+import LinearColors from "@/enums/linearColors";
+import { LinearGradient } from "expo-linear-gradient";
+import { Pressable, StyleSheet, Text } from "react-native";
 
 const TodayTarget = () => {
   return (
     <LinearGradient
+      start={{ x: 1, y: 1 }}
+      end={{ x: 0, y: 0 }}
       colors={LinearColors.BlueBackgroundLinear}
       style={styles.container}
     >
@@ -30,13 +32,13 @@ const styles = StyleSheet.create({
   container: {
     height: 57,
     borderRadius: 16,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     paddingHorizontal: 20,
   },
   label: {
-    fontWeight: 'medium',
+    fontWeight: "medium",
     fontSize: 14,
     color: colors.black,
   },
@@ -44,8 +46,8 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     height: 28,
     width: 68,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   buttonText: {
     color: colors.white,
